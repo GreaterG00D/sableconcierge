@@ -29,7 +29,7 @@ export default function MembershipBridge({
     <section className="bg-[var(--sable-warm-bg)] px-[10px] pt-[10px]">
       <Reveal>
         <div className="mx-auto max-w-[1600px]">
-          <div className="overflow-hidden rounded-[32px] border border-[rgba(166,140,74,0.42)] bg-[linear-gradient(180deg,#f8f3ea_0%,#f2ebdf_100%)] px-5 py-12 sm:px-8 sm:py-16 xl:px-12 xl:py-20">
+          <div className="overflow-hidden rounded-[32px] border-3 border-[rgba(166,140,74,0.42)] bg-[linear-gradient(180deg,#f8f3ea_0%,#f2ebdf_100%)] px-5 py-12 sm:px-8 sm:py-16 xl:px-12 xl:py-20">
             <div className="mb-10 text-center sm:mb-12 xl:mb-14">
               <p className="text-[0.78rem] uppercase tracking-[0.36em] text-[var(--sable-sage)]">
                 {eyebrow}
@@ -106,7 +106,7 @@ export default function MembershipBridge({
               <div className="absolute inset-y-0 left-1/2 z-20 w-[220px] -translate-x-1/2 bg-transparent 2xl:w-[250px]" />
 
               <div className="relative z-10 grid min-h-[580px] grid-cols-2">
-                <div className="rounded-l-[42px] border border-r-0 border-[rgba(166,140,74,0.22)] bg-[linear-gradient(180deg,#22311a_0%,#2d3e23_100%)] px-14 py-14 2xl:px-16 2xl:py-16">
+                <div className="rounded-l-[42px] border-4 border-r-0 border-[rgba(166,140,74,0.22)] bg-[linear-gradient(180deg,#22311a_0%,#2d3e23_100%)] px-14 py-14 2xl:px-16 2xl:py-16">
                   <p className="text-[0.9rem] uppercase tracking-[0.34em] text-[rgba(235,230,215,0.68)] 2xl:text-[0.96rem]">
                     {featuresTitle}
                   </p>
@@ -123,7 +123,7 @@ export default function MembershipBridge({
                   </ul>
                 </div>
 
-                <div className="rounded-r-[42px] border border-l-0 border-[rgba(166,140,74,0.22)] bg-[linear-gradient(180deg,#44563a_0%,#56694a_100%)] px-14 py-14 2xl:px-16 2xl:py-16">
+                <div className="rounded-r-[42px] border-4 border-l-0 border-[rgba(166,140,74,0.22)] bg-[linear-gradient(180deg,#44563a_0%,#56694a_100%)] px-14 py-14 2xl:px-16 2xl:py-16">
                   <div className="ml-auto max-w-[390px] 2xl:max-w-[430px]">
                     <p className="text-[0.9rem] uppercase tracking-[0.34em] text-[rgba(235,230,215,0.68)] 2xl:text-[0.96rem]">
                       {benefitsTitle}

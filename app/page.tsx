@@ -27,7 +27,7 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-[var(--sable-warm-bg)] text-[var(--sable-body)]">
       <section className="bg-[var(--sable-warm-bg)] px-[10px] pt-[10px]">
-        <div className="overflow-hidden rounded-[32px] border border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1b2815_0%,#22311a_54%,#273620_100%)] shadow-[0_18px_60px_rgba(0,0,0,0.08)]">
+        <div className="overflow-hidden rounded-[32px] border-3 border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1b2815_0%,#22311a_54%,#273620_100%)] shadow-[0_18px_60px_rgba(0,0,0,0.08)]">
           <div className="mx-auto max-w-5xl px-6 py-20 text-center sm:px-10 sm:py-28 md:px-14 md:py-36">
             <Reveal y={12}>
               <p className="text-[0.72rem] uppercase tracking-[0.4em] text-[rgba(235,230,215,0.7)] sm:text-[0.78rem]">
@@ -95,7 +95,7 @@ export default function Page() {
 
       <section className="bg-[var(--sable-warm-bg)] px-[10px] pt-[10px]">
         <Reveal>
-          <div className="overflow-hidden rounded-[32px] border border-[rgba(166,140,74,0.42)] bg-[linear-gradient(180deg,#f8f3ea_0%,#f4eee3_100%)]">
+          <div className="overflow-hidden rounded-[32px] border-3 border-[rgba(166,140,74,0.42)] bg-[linear-gradient(180deg,#f8f3ea_0%,#f4eee3_100%)]">
             <div className="mx-auto max-w-5xl px-6 py-14 sm:px-10 sm:py-18 md:px-14 md:py-24">
               <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
@@ -135,7 +135,7 @@ export default function Page() {
 
       <section className="bg-[var(--sable-warm-bg)] px-[10px] pt-[10px]">
         <Reveal>
-          <div className="overflow-hidden rounded-[32px] border border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1d2a16_0%,#25341d_100%)] text-white">
+          <div className="overflow-hidden rounded-[32px] border-3 border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1d2a16_0%,#25341d_100%)] text-white">
             <div className="mx-auto max-w-6xl px-6 py-14 sm:px-10 sm:py-18 md:px-14 md:py-24">
               <div className="text-center">
                 <p className="text-[0.78rem] uppercase tracking-[0.36em] text-[rgba(235,230,215,0.62)]">
@@ -189,7 +189,7 @@ export default function Page() {
         className="bg-[var(--sable-warm-bg)] px-[10px] py-[10px]"
       >
         <Reveal>
-          <div className="overflow-hidden rounded-[32px] border border-[rgba(166,140,74,0.5)] bg-[linear-gradient(180deg,#f6f0e6_0%,#f1eadf_100%)] text-[var(--sable-dark)]">
+          <div className="overflow-hidden rounded-[32px] border-3 border-[rgba(166,140,74,0.5)] bg-[linear-gradient(180deg,#f6f0e6_0%,#f1eadf_100%)] text-[var(--sable-dark)]">
             <div className="mx-auto max-w-2xl px-6 py-14 text-center sm:px-10 sm:py-18 md:px-14 md:py-24">
               <p className="text-[0.78rem] uppercase tracking-[0.36em] text-[var(--sable-sage)]">
                 {contactSection.eyebrow}
