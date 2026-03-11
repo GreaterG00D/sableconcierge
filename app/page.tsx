@@ -12,18 +12,26 @@ import {
 import { FaPaw } from "react-icons/fa6";
 
 export default function Page() {
-  const { hero, about, services, contact } = siteContent;
+  const {
+    hero,
+    about,
+    servicesSection,
+    services,
+    membership,
+    contactSection,
+    contact,
+  } = siteContent;
+
   const heroWords = hero.title.split(" ");
 
   return (
     <main className="min-h-screen bg-[var(--sable-warm-bg)] text-[var(--sable-body)]">
-      {/* Hero */}
       <section className="bg-[var(--sable-warm-bg)] px-[10px] pt-[10px]">
         <div className="overflow-hidden rounded-[32px] border border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1b2815_0%,#22311a_54%,#273620_100%)] shadow-[0_18px_60px_rgba(0,0,0,0.08)]">
           <div className="mx-auto max-w-5xl px-6 py-20 text-center sm:px-10 sm:py-28 md:px-14 md:py-36">
             <Reveal y={12}>
               <p className="text-[0.72rem] uppercase tracking-[0.4em] text-[rgba(235,230,215,0.7)] sm:text-[0.78rem]">
-                Private Concierge Services
+                {hero.pretitle}
               </p>
             </Reveal>
 
@@ -41,6 +49,12 @@ export default function Page() {
 
             <Reveal delay={140} y={12}>
               <div className="mx-auto mt-8 h-px w-24 bg-[linear-gradient(90deg,transparent_0%,rgba(166,140,74,0.15)_20%,rgba(166,140,74,0.75)_50%,rgba(166,140,74,0.15)_80%,transparent_100%)]" />
+            </Reveal>
+
+            <Reveal delay={200} y={18}>
+              <p className="mx-auto mt-8 max-w-2xl font-heading text-[1.15rem] italic leading-[1.7] text-[var(--sable-cream)] sm:text-[1.3rem]">
+                {hero.tagline}
+              </p>
             </Reveal>
 
             <Reveal delay={260} y={18}>
@@ -62,24 +76,23 @@ export default function Page() {
 
             <Reveal delay={380} y={16}>
               <a
-                href="#contact"
+                href={`#${hero.ctaTarget}`}
                 className="mt-12 inline-flex items-center justify-center rounded-full border border-[rgba(166,140,74,0.85)] px-10 py-4 font-heading text-[0.92rem] tracking-[0.14em] text-[var(--sable-warm-bg)] transition duration-300 hover:-translate-y-[1px] hover:bg-[rgba(166,140,74,0.95)] hover:text-[var(--sable-dark)] sm:px-14"
               >
-                Arrange a Private Consultation
+                {hero.ctaLabel}
               </a>
             </Reveal>
 
             <Reveal delay={440} y={12}>
               <div className="mt-14 flex flex-col items-center gap-2 text-[0.8rem] uppercase tracking-[0.26em] text-[rgba(235,230,215,0.56)]">
                 <p>{hero.location}</p>
-                <p className="text-[var(--sable-gold)]">Impeccable Care for Plants and Place</p>
+                <p className="text-[var(--sable-gold)]">{hero.footerTagline}</p>
               </div>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* About */}
       <section className="bg-[var(--sable-warm-bg)] px-[10px] pt-[10px]">
         <Reveal>
           <div className="overflow-hidden rounded-[32px] border border-[rgba(166,140,74,0.42)] bg-[linear-gradient(180deg,#f8f3ea_0%,#f4eee3_100%)]">
@@ -87,10 +100,10 @@ export default function Page() {
               <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <p className="text-[0.78rem] uppercase tracking-[0.36em] text-[var(--sable-sage)]">
-                    Sable Concierge
+                    {about.eyebrow}
                   </p>
                   <p className="mt-2 text-sm italic text-[rgba(58,63,45,0.72)]">
-                    Discreet, thoughtful, and deeply personal support
+                    {about.supportingLine}
                   </p>
                 </div>
               </div>
@@ -98,8 +111,8 @@ export default function Page() {
               <div className="grid gap-10 md:grid-cols-[220px_1fr] md:gap-16">
                 <div>
                   <h2 className="font-heading text-3xl leading-[0.95] tracking-[-0.03em] text-[var(--sable-dark)] sm:text-4xl">
-                    ABOUT
-                    <span className="block">OLIVIA</span>
+                    {about.title.toUpperCase()}
+                    <span className="block">{about.heading.toUpperCase()}</span>
                   </h2>
 
                   <div className="mt-6 h-px w-16 bg-[rgba(166,140,74,0.5)]" />
@@ -107,7 +120,7 @@ export default function Page() {
 
                 <div>
                   <h3 className="font-heading text-[1.35rem] text-[var(--sable-dark)] sm:text-[1.6rem]">
-                    A natural standard of care
+                    {about.subheading}
                   </h3>
 
                   <p className="mt-6 whitespace-pre-line text-[1rem] leading-8 text-[var(--sable-body-soft)]">
@@ -120,22 +133,21 @@ export default function Page() {
         </Reveal>
       </section>
 
-      {/* Services */}
       <section className="bg-[var(--sable-warm-bg)] px-[10px] pt-[10px]">
         <Reveal>
           <div className="overflow-hidden rounded-[32px] border border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1d2a16_0%,#25341d_100%)] text-white">
             <div className="mx-auto max-w-6xl px-6 py-14 sm:px-10 sm:py-18 md:px-14 md:py-24">
               <div className="text-center">
                 <p className="text-[0.78rem] uppercase tracking-[0.36em] text-[rgba(235,230,215,0.62)]">
-                  Services
+                  {servicesSection.eyebrow}
                 </p>
 
                 <h2 className="mt-4 font-heading text-3xl tracking-[-0.03em] text-white sm:text-4xl">
-                  Considered Support, Beautifully Handled
+                  {servicesSection.title}
                 </h2>
 
                 <p className="mx-auto mt-4 max-w-2xl text-sm italic leading-7 text-[var(--sable-cream)] sm:text-base">
-                  Every offering is tailored to the rhythms of your home, your priorities, and your lifestyle.
+                  {servicesSection.subtitle}
                 </p>
               </div>
 
@@ -162,26 +174,33 @@ export default function Page() {
       </section>
 
       <MembershipBridge
-        features={siteContent.membership.features}
-        benefits={siteContent.membership.benefits}
-        centerText="Custom & Personalized"
+        eyebrow={membership.eyebrow}
+        title={membership.title}
+        subtitle={membership.subtitle}
+        featuresTitle={membership.featuresTitle}
+        benefitsTitle={membership.benefitsTitle}
+        features={[...membership.features]}
+        benefits={[...membership.benefits]}
+        centerText={membership.centerText}
       />
 
-      {/* Contact */}
-      <section id="contact" className="bg-[var(--sable-warm-bg)] px-[10px] py-[10px]">
+      <section
+        id={contactSection.id}
+        className="bg-[var(--sable-warm-bg)] px-[10px] py-[10px]"
+      >
         <Reveal>
           <div className="overflow-hidden rounded-[32px] border border-[rgba(166,140,74,0.5)] bg-[linear-gradient(180deg,#f6f0e6_0%,#f1eadf_100%)] text-[var(--sable-dark)]">
             <div className="mx-auto max-w-2xl px-6 py-14 text-center sm:px-10 sm:py-18 md:px-14 md:py-24">
               <p className="text-[0.78rem] uppercase tracking-[0.36em] text-[var(--sable-sage)]">
-                Contact
+                {contactSection.eyebrow}
               </p>
 
               <h2 className="mt-4 font-heading text-3xl tracking-[-0.03em] text-[var(--sable-dark)] sm:text-4xl">
-                Begin with a Conversation
+                {contactSection.title}
               </h2>
 
               <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[var(--sable-body-soft)] sm:text-base">
-                For inquiries, availability, or to arrange your first session, reach out directly below.
+                {contactSection.subtitle}
               </p>
 
               <ul className="mx-auto mt-12 max-w-[34rem] space-y-4 text-left">
@@ -233,14 +252,14 @@ export default function Page() {
               <div className="mx-auto mt-12 h-px w-20 bg-[rgba(166,140,74,0.42)]" />
 
               <p className="mt-8 font-heading text-base italic text-[var(--sable-sage)] sm:text-lg">
-                “The Gift of Time”
+                &ldquo;{contactSection.quote}&rdquo;
               </p>
 
               <div className="mt-4 space-y-1 text-sm text-[var(--sable-body-soft)]">
-                <p>Sable Concierge</p>
-                <p>Austin, Texas</p>
+                <p>{contactSection.brand}</p>
+                <p>{contactSection.location}</p>
                 <p className="font-heading italic text-[var(--sable-sage)]">
-                  Impeccable Care for Plants and Place
+                  {contactSection.tagline}
                 </p>
               </div>
             </div>
