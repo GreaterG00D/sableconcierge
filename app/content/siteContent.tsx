@@ -49,7 +49,8 @@ export const siteContent = {
       benefits: [
         "Curated to your needs and desires",
         "Reliable and consistent",
-        "Trustworthy professionals",
+        "Trustworthy",
+        "Professional"
       ],
     },
   
