@@ -10,6 +10,7 @@ import {
   RiPhoneLine,
 } from "react-icons/ri";
 import { FaPaw } from "react-icons/fa6";
+import Image from "next/image";
 
 export default function Page() {
   const {
@@ -22,7 +23,7 @@ export default function Page() {
     contact,
   } = siteContent;
 
-  const heroWords = hero.title.split(" ");
+  // const heroWords = hero.title.split(" ");
 
   return (
     <main className="min-h-screen bg-[var(--sable-warm-bg)] text-[var(--sable-body)]">
@@ -36,15 +37,26 @@ export default function Page() {
             </Reveal>
 
             <Reveal delay={80} y={18}>
-              <div className="mt-8">
+              <div className="mt-8 flex justify-center">
+                <div className="rounded-2xl border border-[rgba(166,140,74,0.55)] bg-white p-6 sm:p-8">
+                  <Image
+                    src="/sable-concierge-logo.png"
+                    alt="Sable Concierge"
+                    width={320}
+                    height={120}
+                    className="h-auto w-full max-w-[280px] rounded-2xl object-contain sm:max-w-[320px]"
+                    priority
+                  />
+                </div>
+              </div>
+              {/* <div className="mt-8">
                 <p className="font-heading text-[4.3rem] leading-[0.9] tracking-[-0.05em] text-[var(--sable-warm-bg)] sm:text-[5.7rem] md:text-[6.9rem] motion-safe:animate-[float_7s_ease-in-out_infinite]">
                   {heroWords[0]}
                 </p>
-
                 <p className="mt-2 font-heading text-[1.05rem] tracking-[0.42em] text-[var(--sable-gold)] sm:text-[1.2rem]">
                   {heroWords.slice(1).join(" ").toUpperCase()}
                 </p>
-              </div>
+              </div> */}
             </Reveal>
 
             <Reveal delay={140} y={12}>
