@@ -88,7 +88,7 @@ At Sable Concierge, Olivia’s love for plants, people, and place is more than a
 
   contact: {
     phone: "512.422.5413",
-    email: "sableconciergeatx.com@gmail.com",
+    email: "Olivia@SableServices.com",
     instagram: "@sableconsiergeatx",
   },
 } as const;
