@@ -14,8 +14,8 @@ export const siteContent = {
   about: {
     eyebrow: "Sable Concierge",
     supportingLine: "Discreet, thoughtful, and deeply personal support",
-    title: "About",
-    heading: "Olivia",
+    title: "About Olivia",
+    heading: "Home Manager",
     subheading: "A natural standard of care",
     body: `Some people are natural caretakers — Olivia Whitehead is one of them. Long before Sable Concierge had a name, Olivia was the person her family turned to: the one who showed up, stayed organized, and made sure everything — and everyone — was thoughtfully cared for. That same devotion now extends to her clients, their homes, and their plants.
 
@@ -89,6 +89,6 @@ At Sable Concierge, Olivia’s love for plants, people, and place is more than a
   contact: {
     phone: "512.422.5413",
     email: "Olivia@SableServices.com",
-    instagram: "@sableconsiergeatx",
+    instagram: "@sableconciergeatx",
   },
-} as const;
+} as const; updated instagram, updated title, updated heading
