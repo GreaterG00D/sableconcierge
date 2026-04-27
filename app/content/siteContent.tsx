@@ -91,4 +91,4 @@ At Sable Concierge, Olivia’s love for plants, people, and place is more than a
     email: "Olivia@SableServices.com",
     instagram: "@sableconciergeatx",
   },
-} as const; updated instagram, updated title, updated heading
+} as const;
