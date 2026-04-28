@@ -124,8 +124,11 @@ export default function Page() {
                 <div>
                   <h2 className="font-heading text-3xl leading-[0.95] tracking-[-0.03em] text-[var(--sable-dark)] sm:text-4xl">
                     {about.title.toUpperCase()}
-                    <span className="block">{about.heading.toUpperCase()}</span>
                   </h2>
+                  <div className="mt-3 h-px w-10 bg-[linear-gradient(90deg,var(--sable-gold)_0%,rgba(166,140,74,0.15)_100%)]" />
+                  <p className="mt-3 font-heading text-2xl leading-[1.2] tracking-[-0.01em] text-[rgba(58,63,45,0.65)]">
+                    {about.heading}
+                  </p>
 
                   <div className="mt-6 h-px w-16 bg-[rgba(166,140,74,0.5)]" />
                 </div>
