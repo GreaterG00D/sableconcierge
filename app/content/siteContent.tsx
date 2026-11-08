@@ -74,6 +74,20 @@ At Sable Concierge, Olivia’s love for plants, people, and place is more than a
     ],
   },
 
+  testimonialsSection: {
+    eyebrow: "Kind Words",
+  },
+
+  // The first entry is shown large; any others sit beneath it, two per row.
+  // Each entry needs a quote and name; detail is optional.
+  testimonials: [
+    {
+      quote:
+        "Olivia took care of my cat and my plants while I was out of the country. It was good to be that far from home and feel like things were handled. If a friend asked who I’d trust with their place, I’d tell them to call Olivia.",
+      name: "James",
+    },
+  ],
+
   contactSection: {
     id: "contact",
     eyebrow: "Contact",

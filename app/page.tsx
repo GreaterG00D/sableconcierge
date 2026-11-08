@@ -12,6 +12,12 @@ import {
 import { FaPaw } from "react-icons/fa6";
 import Image from "next/image";
 
+type Testimonial = {
+  quote: string;
+  name: string;
+  detail?: string;
+};
+
 export default function Page() {
   const {
     hero,
@@ -19,9 +25,14 @@ export default function Page() {
     servicesSection,
     services,
     membership,
+    testimonialsSection,
+    testimonials,
     contactSection,
     contact,
   } = siteContent;
+
+  const [featuredTestimonial, ...supportingTestimonials]: readonly Testimonial[] =
+    testimonials;
 
   // const heroWords = hero.title.split(" ");
 
@@ -198,6 +209,68 @@ export default function Page() {
         benefits={[...membership.benefits]}
         centerText={membership.centerText}
       />
+
+      <section className="bg-[var(--sable-warm-bg)] px-[10px] pt-[10px]">
+        <Reveal>
+          <div className="overflow-hidden rounded-[32px] border-3 border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1d2a16_0%,#25341d_100%)]">
+            <div className="mx-auto max-w-5xl px-6 py-16 text-center sm:px-10 sm:py-20 md:px-14 md:py-28">
+              <p className="text-[0.78rem] uppercase tracking-[0.36em] text-[rgba(235,230,215,0.62)]">
+                {testimonialsSection.eyebrow}
+              </p>
+
+              <div className="mx-auto mt-8 h-px w-24 bg-[linear-gradient(90deg,transparent_0%,rgba(166,140,74,0.15)_20%,rgba(166,140,74,0.75)_50%,rgba(166,140,74,0.15)_80%,transparent_100%)]" />
+
+              <figure className="mt-10 sm:mt-12">
+                <blockquote className="mx-auto max-w-3xl font-heading text-[1.6rem] italic leading-[1.45] text-[var(--sable-warm-bg)] sm:text-[2.1rem] md:text-[2.4rem]">
+                  &ldquo;{featuredTestimonial.quote}&rdquo;
+                </blockquote>
+
+                <figcaption className="mt-8 text-[0.76rem] uppercase tracking-[0.26em]">
+                  <span className="text-[var(--sable-gold)]">
+                    {featuredTestimonial.name}
+                  </span>
+                  {featuredTestimonial.detail && (
+                    <span className="mt-2 block text-[rgba(235,230,215,0.56)]">
+                      {featuredTestimonial.detail}
+                    </span>
+                  )}
+                </figcaption>
+              </figure>
+
+              {supportingTestimonials.length > 0 && (
+                <div className="mt-14 grid border-t border-[rgba(166,140,74,0.22)] md:mt-20 md:grid-cols-2">
+                  {supportingTestimonials.map((testimonial, index) => (
+                    <Reveal key={testimonial.quote} delay={index * 100} y={16}>
+                      <figure
+                        className={`px-2 pt-10 md:px-10 md:pt-12 ${
+                          index > 0
+                            ? "mt-10 border-t border-[rgba(166,140,74,0.22)] md:mt-0 md:border-l md:border-t-0"
+                            : ""
+                        }`}
+                      >
+                        <blockquote className="font-heading text-[1.12rem] italic leading-[1.7] text-[var(--sable-cream)]">
+                          &ldquo;{testimonial.quote}&rdquo;
+                        </blockquote>
+
+                        <figcaption className="mt-6 text-[0.72rem] uppercase tracking-[0.26em]">
+                          <span className="text-[var(--sable-gold)]">
+                            {testimonial.name}
+                          </span>
+                          {testimonial.detail && (
+                            <span className="mt-2 block text-[rgba(235,230,215,0.56)]">
+                              {testimonial.detail}
+                            </span>
+                          )}
+                        </figcaption>
+                      </figure>
+                    </Reveal>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </Reveal>
+      </section>
 
       <section
         id={contactSection.id}
