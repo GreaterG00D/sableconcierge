@@ -86,6 +86,27 @@ At Sable Concierge, Olivia’s love for plants, people, and place is more than a
         "Olivia took care of my cat and my plants while I was out of the country. It was good to be that far from home and feel like things were handled. If a friend asked who I’d trust with their place, I’d tell them to call Olivia.",
       name: "James",
     },
+    {
+      quote:
+        "Olivia transformed my closet. Her keen eye for detail and her organizational skills made the entire process feel seamless. She arranged my clothes by season and kept my favorites front and center, so the pieces I reach for most are always easy to find. She organized my shoes and purses by occasion and how often I wear them, which makes getting ready faster and far more enjoyable. Olivia was collaborative, thoughtful, and attentive to my vision. The result is a personalized closet based on my needs and desires. I highly recommend Olivia for any organizational project.",
+      name: "Martha",
+    },
+    {
+      quote:
+        "Olivia was fantastic! She puts in the work with such a rare level of professionalism that my dog and I only see from my vet! My little Perry definitely loved seeing her way more than them, too. If you asked either of us, we’d both recommend Olivia for the amazing hospitality and attention to detail.",
+      name: "David",
+    },
+    {
+      quote:
+        "Olivia at Sable Concierge is wonderful! She handles anything entrusted to her with care, kindness and compassion. Whether it’s tending to plants or pets, grocery shopping, collecting mail and packages, or anything else, she ensures the job is done well! Olivia is very trustworthy and dependable and I’m so grateful to have someone like her tend to things when I need her.",
+      name: "Melanie",
+    },
+    {
+      quote:
+        "Whenever I’m away for an extended stretch, Sable Services gives me complete peace of mind. Olivia handles everything at my home as if it were her own: she meets my housecleaners and makes sure the work is done right, coordinates with contractors whenever something comes up, and keeps my plants thriving. She’s reliable, communicative, and thorough, and I never have to worry about what’s happening while I’m gone. I can’t recommend Olivia and Sable Services highly enough.",
+      name: "Charlie J.",
+      detail: "Austin, TX",
+    },
   ],
 
   contactSection: {

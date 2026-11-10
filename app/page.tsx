@@ -238,14 +238,19 @@ export default function Page() {
               </figure>
 
               {supportingTestimonials.length > 0 && (
-                <div className="mt-14 grid border-t border-[rgba(166,140,74,0.22)] md:mt-20 md:grid-cols-2">
+                <div className="mt-14 grid border-t border-[rgba(166,140,74,0.22)] md:mt-20 md:grid-cols-2 md:gap-y-12">
                   {supportingTestimonials.map((testimonial, index) => (
-                    <Reveal key={testimonial.quote} delay={index * 100} y={16}>
+                    <Reveal
+                      key={testimonial.quote}
+                      className="h-full"
+                      delay={(index % 2) * 100}
+                      y={16}
+                    >
                       <figure
-                        className={`px-2 pt-10 md:px-10 md:pt-12 ${
-                          index > 0
-                            ? "mt-10 border-t border-[rgba(166,140,74,0.22)] md:mt-0 md:border-l md:border-t-0"
-                            : ""
+                        className={`h-full border-[rgba(166,140,74,0.22)] px-2 pt-10 md:px-10 md:pt-12 ${
+                          index > 0 ? "mt-10 border-t md:mt-0" : ""
+                        } ${index === 1 ? "md:border-t-0" : ""} ${
+                          index % 2 === 1 ? "md:border-l" : ""
                         }`}
                       >
                         <blockquote className="font-heading text-[1.12rem] italic leading-[1.7] text-[var(--sable-cream)]">
