@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     url: "/",
     type: "website",
     images: [{
-      url: "/social/sable-concierge-arch-v2.jpg",
+      url: "/social/sable-concierge-lattice-v3.jpg",
       width: 1200,
       height: 630,
       alt: "Sable Concierge — The gift of time. Private home concierge in Austin, Texas.",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     images: [{
-      url: "/social/sable-concierge-arch-v2.jpg",
+      url: "/social/sable-concierge-lattice-v3.jpg",
       alt: "Sable Concierge — The gift of time. Private home concierge in Austin, Texas.",
     }],
   },
