@@ -33,9 +33,21 @@ function Attribution({ testimonial }: { testimonial: Testimonial }) {
   );
 }
 
-function Body({ paragraphs }: { paragraphs: readonly string[] }) {
+function Body({
+  paragraphs,
+  compact = false,
+}: {
+  paragraphs: readonly string[];
+  compact?: boolean;
+}) {
   return (
-    <div className="space-y-4 text-[1.125rem] leading-[1.75] text-[rgba(235,230,215,0.9)]">
+    <div
+      className={`text-[rgba(235,230,215,0.9)] ${
+        compact
+          ? "space-y-3 text-[1.0625rem] leading-[1.6]"
+          : "space-y-4 text-[1.125rem] leading-[1.75]"
+      }`}
+    >
       {paragraphs.map((paragraph) => (
         <p key={paragraph}>{paragraph}</p>
       ))}
@@ -138,86 +150,90 @@ function MobileSalon({ eyebrow, testimonials }: Props) {
     track.scrollTo({ left: index * (first.offsetWidth + 14), behavior: "smooth" });
   };
 
+  // Phone layout: controls up top, then compact cards where the photo,
+  // headline and client name sit together so a whole review fits on screen.
   return (
-    <div data-salon-mobile className="py-14 lg:hidden">
-      <div className="flex items-baseline justify-between px-6 sm:px-10">
+    <div data-salon-mobile className="pb-8 pt-6 lg:hidden">
+      <div className="flex items-center justify-between gap-3 px-6 sm:px-10">
         <p className="text-[0.875rem] uppercase tracking-[0.2em] text-[rgba(235,230,215,0.86)]">
           {eyebrow}
         </p>
-        <p
-          aria-live="polite"
-          className="font-heading text-[1.05rem] tabular-nums text-[var(--sable-gold)]"
-        >
-          {counter(active + 1)}
-          <span className="text-[rgba(235,230,215,0.86)]">
-            {" "}
-            / {counter(testimonials.length)}
-          </span>
-        </p>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            aria-label="Previous review"
+            disabled={active === 0}
+            onClick={() => goTo(active - 1)}
+            className={arrowClass}
+          >
+            <FiArrowLeft className="h-5 w-5" />
+          </button>
+          <p
+            aria-live="polite"
+            className="w-[3.6rem] text-center font-heading text-[1.05rem] tabular-nums text-[var(--sable-gold)]"
+          >
+            {counter(active + 1)}
+            <span className="text-[rgba(235,230,215,0.86)]">
+              {" "}
+              / {counter(testimonials.length)}
+            </span>
+          </p>
+          <button
+            type="button"
+            aria-label="Next review"
+            disabled={active === testimonials.length - 1}
+            onClick={() => goTo(active + 1)}
+            className={arrowClass}
+          >
+            <FiArrowRight className="h-5 w-5" />
+          </button>
+        </div>
+      </div>
+
+      <div aria-hidden className="mx-6 mt-4 flex gap-1.5 sm:mx-10">
+        {testimonials.map((testimonial, index) => (
+          <span
+            key={testimonial.name}
+            className={`h-0.5 flex-1 transition-colors duration-500 ${
+              index === active
+                ? "bg-[var(--sable-gold)]"
+                : "bg-[rgba(166,140,74,0.35)]"
+            }`}
+          />
+        ))}
       </div>
 
       <div
         ref={trackRef}
         onScroll={handleScroll}
-        className="mt-7 flex items-start snap-x snap-mandatory scroll-px-6 gap-3.5 overflow-x-auto px-6 [scrollbar-width:none] sm:scroll-px-10 sm:px-10 [&::-webkit-scrollbar]:hidden"
+        className="mt-4 flex items-start snap-x snap-mandatory scroll-px-6 gap-3.5 overflow-x-auto px-6 [scrollbar-width:none] sm:scroll-px-10 sm:px-10 [&::-webkit-scrollbar]:hidden"
       >
         {testimonials.map((testimonial) => (
           <figure
             key={testimonial.headline}
-            className="w-[86%] max-w-[480px] shrink-0 snap-start"
+            className="w-[90%] max-w-[520px] shrink-0 snap-start"
           >
             <div
-              className="relative aspect-[4/5] overflow-hidden rounded-[20px] bg-cover bg-center"
+              className="relative aspect-[16/10] overflow-hidden rounded-[18px] bg-cover bg-center"
               style={{
                 backgroundImage: `url(${photoUrl(testimonial.image, 900)})`,
               }}
             >
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(29,42,22,0)_38%,rgba(29,42,22,0.9)_100%)]" />
-              <h3 className="absolute inset-x-5 bottom-5 font-heading text-[clamp(1.6rem,8.2vw,2.15rem)] font-normal leading-[1.1] tracking-[-0.012em] text-[var(--sable-warm-bg)]">
-                {testimonial.headline}
-              </h3>
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(21,33,26,0.05)_0%,rgba(21,33,26,0.6)_45%,rgba(21,33,26,0.96)_100%)]" />
+              <figcaption className="absolute inset-x-5 bottom-4">
+                <h3 className="font-heading text-[clamp(1.5rem,7vw,2rem)] font-normal leading-[1.1] tracking-[-0.012em] text-[var(--sable-warm-bg)] [text-shadow:0_1px_12px_rgba(0,0,0,0.45)]">
+                  {testimonial.headline}
+                </h3>
+                <div className="mt-2">
+                  <Attribution testimonial={testimonial} />
+                </div>
+              </figcaption>
             </div>
-            <div className="px-1 pt-6">
-              <Body paragraphs={testimonial.body} />
-              <div className="mt-5">
-                <Attribution testimonial={testimonial} />
-              </div>
+            <div className="px-1 pt-4">
+              <Body paragraphs={testimonial.body} compact />
             </div>
           </figure>
         ))}
-      </div>
-
-      <div className="mx-6 mt-9 flex items-center gap-4 sm:mx-10">
-        <div aria-hidden className="flex flex-1 gap-1.5">
-          {testimonials.map((testimonial, index) => (
-            <span
-              key={testimonial.name}
-              className={`h-0.5 flex-1 transition-colors duration-500 ${
-                index === active
-                  ? "bg-[var(--sable-gold)]"
-                  : "bg-[rgba(166,140,74,0.35)]"
-              }`}
-            />
-          ))}
-        </div>
-        <button
-          type="button"
-          aria-label="Previous review"
-          disabled={active === 0}
-          onClick={() => goTo(active - 1)}
-          className={arrowClass}
-        >
-          <FiArrowLeft className="h-5 w-5" />
-        </button>
-        <button
-          type="button"
-          aria-label="Next review"
-          disabled={active === testimonials.length - 1}
-          onClick={() => goTo(active + 1)}
-          className={arrowClass}
-        >
-          <FiArrowRight className="h-5 w-5" />
-        </button>
       </div>
     </div>
   );

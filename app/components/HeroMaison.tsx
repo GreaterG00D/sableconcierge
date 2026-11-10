@@ -1,18 +1,6 @@
 import Image from "next/image";
-import type { IconType } from "react-icons";
-import {
-  RiArchiveDrawerLine,
-  RiHomeLine,
-  RiPlantLine,
-  RiShoppingBagLine,
-} from "react-icons/ri";
-
-const icons: Record<string, IconType> = {
-  "Plant Care": RiPlantLine,
-  "Personal Shopping": RiShoppingBagLine,
-  "Home Care": RiHomeLine,
-  "Home Organization": RiArchiveDrawerLine,
-};
+import { RiPlantLine } from "react-icons/ri";
+import { serviceVisuals } from "@/content/serviceVisuals";
 
 type Props = {
   location: string;
@@ -80,7 +68,7 @@ export default function HeroMaison({ location, subtitle, services }: Props) {
           <div data-hero-ctas className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-center sm:gap-8 lg:justify-start">
             <a
               href="#contact"
-              className="flex h-14 items-center justify-center rounded-full bg-[var(--sable-dark)] px-9 text-[1.0625rem] tracking-[0.02em] text-[var(--sable-warm-bg)] transition-colors hover:bg-[var(--sable-sage)]"
+              className="flex h-14 items-center justify-center rounded-full bg-[var(--sable-dark)] px-9 text-[1.0625rem] tracking-[0.02em] text-[var(--sable-warm-bg)] btn-leaf"
             >
               Arrange a consultation
             </a>
@@ -101,11 +89,11 @@ export default function HeroMaison({ location, subtitle, services }: Props) {
           </div>
         </div>
 
-        <div className="mx-auto w-full max-w-[520px]">
+        <div className="@container mx-auto w-full max-w-[520px]">
           <div
             role="img"
             aria-label="A sunlit Austin cottage living room with a linen ottoman"
-            className="aspect-[4/5] rounded-t-full bg-cover bg-center shadow-[0_40px_80px_-30px_rgba(29,42,22,0.45)]"
+            className="aspect-[4/5] rounded-b-[24px] rounded-t-[50cqw] bg-cover bg-center shadow-[0_40px_80px_-30px_rgba(29,42,22,0.45)]"
             style={{ backgroundImage: `url(${PHOTO})` }}
           />
         </div>
@@ -113,7 +101,7 @@ export default function HeroMaison({ location, subtitle, services }: Props) {
 
       <ul className="mx-auto mt-14 grid max-w-[1400px] grid-cols-2 gap-x-6 gap-y-3 border-t border-[rgba(74,94,51,0.25)] pt-6 text-[0.875rem] uppercase tracking-[0.18em] text-[var(--sable-body-soft)] md:flex md:justify-between">
         {services.map((service) => {
-          const Icon = icons[service.title] ?? RiPlantLine;
+          const Icon = serviceVisuals[service.title]?.icon ?? RiPlantLine;
           return (
             <li key={service.title} className="flex items-center gap-3">
               <Icon aria-hidden className="h-5 w-5 shrink-0 text-[#8a6f2e]" />

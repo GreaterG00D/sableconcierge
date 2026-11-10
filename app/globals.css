@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --sable-dark: #2c3a1e;
+  --sable-dark: #1f2e24;
   --sable-sage: #4a5e33;
   --sable-gold: #c9a84c;
   --sable-gold-dim: #b89844;
@@ -38,6 +38,144 @@ body {
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark green panels share one treatment so the green can be tuned in one place.
+   --panel-a/--panel-b: top and bottom of the gradient; --panel-glow: soft light
+   from the top; --panel-grain: opacity of a fine paper grain. */
+:root {
+  /* Forest green with soft top light and gentle edge shading. */
+  --panel-a: #15211a;
+  --panel-b: #1f2e24;
+  --panel-glow: rgba(214, 190, 120, 0.1);
+  --panel-vignette: rgba(5, 10, 7, 0.45);
+  --panel-texture: none;
+  --panel-grain: 0;
+}
+
+
+.sable-panel {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(120% 70% at 50% 0%, var(--panel-glow), transparent 65%),
+    radial-gradient(140% 120% at 50% 35%, transparent 55%, var(--panel-vignette, transparent) 100%),
+    linear-gradient(180deg, var(--panel-a) 0%, var(--panel-b) 100%);
+}
+
+/* Texture layer: which image, how it's sized and blended, and how strong. */
+.sable-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: var(--panel-grain);
+  mix-blend-mode: var(--panel-blend, overlay);
+  background-image: var(--panel-texture);
+  background-size: var(--panel-texture-size, 180px);
+  background-position: center;
+}
+
+/* Original Art Deco leaf lattice in Sable gold. Drop a .deco-leaf element inside
+   any positioned container; set its strength with opacity and fade it with a
+   mask where needed. */
+/* ---------------------------------------------------------------------------
+   Leaf pattern system. One motif, two inks, three strengths, two fades.
+
+   Ink follows the background so the leaves always read as gold:
+     on cream  -> deep gold   #a68c4a (bright gold vanishes on cream)
+     on green  -> bright gold #c9a84c (deep gold turns muddy olive on green)
+
+   Strength follows the job the pattern is doing:
+     .leaf-cream        30%  edge treatment on cream (bands, fades)
+     .leaf-cream-field  16%  full field behind a card on cream (quiet backdrop)
+     .leaf-green        22%  any use on green (frames, fields, fades)
+   Buttons use the bright-gold ink at a smaller scale on hover (.btn-leaf).
+
+   Coverage is set only by the shared fades, never by ad-hoc masks:
+     .leaf-fade-top   solid for the first 64px, gone by 300px (phones: 40/220)
+     .leaf-fade-left  solid at the left edge, gone by 45% (stacks to top fade)
+   ------------------------------------------------------------------------ */
+.deco-leaf {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--leaf-strength, 0.3);
+  background-image: var(
+    --leaf-ink,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='104' viewBox='0 0 64 104'%3E%3Cdefs%3E%3Cg id='l'%3E%3Cpath d='M32 2C61 30 61 74 32 102C3 74 3 30 32 2Z'/%3E%3Cpath d='M32 2V102M32 28L22 19M32 28L42 19M32 42L15 27M32 42L49 27M32 57L12 40M32 57L52 40M32 72L14 55M32 72L50 55M32 87L19 74M32 87L45 74'/%3E%3C/g%3E%3C/defs%3E%3Cg fill='none' stroke='%23a68c4a' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cuse href='%23l'/%3E%3Cuse href='%23l' x='-32' y='-52'/%3E%3Cuse href='%23l' x='32' y='-52'/%3E%3Cuse href='%23l' x='-32' y='52'/%3E%3Cuse href='%23l' x='32' y='52'/%3E%3C/g%3E%3C/svg%3E")
+  );
+  background-size: 64px 104px;
+  background-position: center top;
+}
+
+.leaf-cream {
+  --leaf-strength: 0.3;
+}
+.leaf-cream-field {
+  --leaf-strength: 0.16;
+}
+.leaf-green {
+  --leaf-strength: 0.22;
+  --leaf-ink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='104' viewBox='0 0 64 104'%3E%3Cdefs%3E%3Cg id='l'%3E%3Cpath d='M32 2C61 30 61 74 32 102C3 74 3 30 32 2Z'/%3E%3Cpath d='M32 2V102M32 28L22 19M32 28L42 19M32 42L15 27M32 42L49 27M32 57L12 40M32 57L52 40M32 72L14 55M32 72L50 55M32 87L19 74M32 87L45 74'/%3E%3C/g%3E%3C/defs%3E%3Cg fill='none' stroke='%23c9a84c' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cuse href='%23l'/%3E%3Cuse href='%23l' x='-32' y='-52'/%3E%3Cuse href='%23l' x='32' y='-52'/%3E%3Cuse href='%23l' x='-32' y='52'/%3E%3Cuse href='%23l' x='32' y='52'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.leaf-fade-top {
+  -webkit-mask-image: linear-gradient(180deg, #000 0, #000 64px, transparent 300px);
+  mask-image: linear-gradient(180deg, #000 0, #000 64px, transparent 300px);
+}
+.leaf-fade-left {
+  -webkit-mask-image: linear-gradient(90deg, #000 0, transparent 45%);
+  mask-image: linear-gradient(90deg, #000 0, transparent 45%);
+}
+@media (max-width: 1023px) {
+  .leaf-fade-left {
+    -webkit-mask-image: linear-gradient(180deg, #000 0, #000 64px, transparent 300px);
+    mask-image: linear-gradient(180deg, #000 0, #000 64px, transparent 300px);
+  }
+}
+@media (max-width: 639px) {
+  .leaf-fade-top,
+  .leaf-fade-left {
+    -webkit-mask-image: linear-gradient(180deg, #000 0, #000 40px, transparent 220px);
+    mask-image: linear-gradient(180deg, #000 0, #000 40px, transparent 220px);
+  }
+}
+
+/* Dark green buttons reveal the gold leaf pattern on hover (and while pressed
+   on touch screens). The tile is drawn at half size so several leaves fit. */
+.btn-leaf:hover,
+.btn-leaf:active,
+.btn-leaf:focus-visible {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='104' viewBox='0 0 64 104'%3E%3Cdefs%3E%3Cg id='l'%3E%3Cpath d='M32 2C61 30 61 74 32 102C3 74 3 30 32 2Z'/%3E%3Cpath d='M32 2V102M32 28L22 19M32 28L42 19M32 42L15 27M32 42L49 27M32 57L12 40M32 57L52 40M32 72L14 55M32 72L50 55M32 87L19 74M32 87L45 74'/%3E%3C/g%3E%3C/defs%3E%3Cg fill='none' stroke='%23c9a84c' stroke-opacity='0.55' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cuse href='%23l'/%3E%3Cuse href='%23l' x='-32' y='-52'/%3E%3Cuse href='%23l' x='32' y='-52'/%3E%3Cuse href='%23l' x='-32' y='52'/%3E%3Cuse href='%23l' x='32' y='52'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 32px 52px;
+  background-position: center;
+}
+
+/* One-time hint on the first FAQ question: a gentle bounce down and up. */
+@keyframes faq-nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  18% {
+    transform: translateY(7px);
+  }
+  36% {
+    transform: translateY(-3px);
+  }
+  54% {
+    transform: translateY(4px);
+  }
+  72% {
+    transform: translateY(-1px);
+  }
+}
+
+.faq-nudge {
+  animation: faq-nudge 1.2s ease-in-out 1;
 }
 
 /* Clear keyboard focus for visitors not using a mouse. */

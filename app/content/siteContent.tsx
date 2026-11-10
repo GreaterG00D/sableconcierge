@@ -87,8 +87,7 @@ At Sable Services, Olivia’s love for plants, people, and place is more than a 
         "Whenever I’m away for an extended stretch, Sable Services gives me complete peace of mind. Olivia handles everything at my home as if it were her own: she meets my housecleaners and makes sure the work is done right, coordinates with contractors whenever something comes up, and keeps my plants thriving. She’s reliable, communicative, and thorough, and I never have to worry about what’s happening while I’m gone. I can’t recommend Olivia and Sable Services highly enough.",
       ],
       name: "Charlie J.",
-      detail: "Austin, TX",
-      image: "photo-1600210492486-724fe5c67fb0",
+      image: "photo-1640357897497-599b4fc84f51",
     },
     {
       headline: "Olivia transformed my closet.",
@@ -97,7 +96,7 @@ At Sable Services, Olivia’s love for plants, people, and place is more than a 
         "Olivia was collaborative, thoughtful, and attentive to my vision. The result is a personalized closet based on my needs and desires. I highly recommend Olivia for any organizational project.",
       ],
       name: "Martha",
-      image: "photo-1513694203232-719a280e022f",
+      image: "photo-1786396798387-f1eb58ab4d15",
     },
     {
       headline: "Care, kindness and compassion.",
@@ -105,7 +104,7 @@ At Sable Services, Olivia’s love for plants, people, and place is more than a 
         "Olivia at Sable Concierge is wonderful! She handles anything entrusted to her with care, kindness and compassion. Whether it’s tending to plants or pets, grocery shopping, collecting mail and packages, or anything else, she ensures the job is done well! Olivia is very trustworthy and dependable and I’m so grateful to have someone like her tend to things when I need her.",
       ],
       name: "Melanie",
-      image: "photo-1416879595882-3373a0480b5b",
+      image: "photo-1787539386523-a2c9fee63615",
     },
     {
       headline: "A rare level of professionalism.",
@@ -113,7 +112,7 @@ At Sable Services, Olivia’s love for plants, people, and place is more than a 
         "Olivia was fantastic! She puts in the work with such a rare level of professionalism that my dog and I only see from my vet! My little Perry definitely loved seeing her way more than them, too. If you asked either of us, we’d both recommend Olivia for the amazing hospitality and attention to detail.",
       ],
       name: "David",
-      image: "photo-1616047006789-b7af5afb8c20",
+      image: "photo-1689009480504-6420452a7e8e",
     },
     {
       headline: "I’d tell them to call Olivia.",
@@ -121,7 +120,7 @@ At Sable Services, Olivia’s love for plants, people, and place is more than a 
         "Olivia took care of my cat and my plants while I was out of the country. It was good to be that far from home and feel like things were handled. If a friend asked who I’d trust with their place, I’d tell them to call Olivia.",
       ],
       name: "James",
-      image: "photo-1493663284031-b7e3aefcae8e",
+      image: "photo-1792957897258-8c72c3b104ff",
     },
   ],
 

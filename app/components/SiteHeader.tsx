@@ -32,7 +32,7 @@ export default function SiteHeader({ brand, phone }: Props) {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[rgba(166,140,74,0.25)] bg-[rgba(240,237,230,0.96)] backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-[rgba(166,140,74,0.25)] bg-[#f0ede6]">
       <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-5 sm:px-8 lg:h-[72px]">
         <a href="#top" onClick={close} aria-label={`${brand} home`}>
           <Image
@@ -64,7 +64,7 @@ export default function SiteHeader({ brand, phone }: Props) {
           <a
             href="#contact"
             onClick={close}
-            className="hidden h-11 shrink-0 items-center rounded-full bg-[var(--sable-dark)] px-6 font-heading text-[1rem] tracking-[0.02em] text-[var(--sable-warm-bg)] transition-colors hover:bg-[var(--sable-sage)] sm:flex"
+            className="hidden h-11 shrink-0 items-center rounded-full bg-[var(--sable-dark)] px-6 font-heading text-[1rem] tracking-[0.02em] text-[var(--sable-warm-bg)] btn-leaf sm:flex"
           >
             Arrange a Consultation
           </a>
@@ -110,7 +110,7 @@ export default function SiteHeader({ brand, phone }: Props) {
         </ul>
         <a
           href={`tel:${phone.replace(/\D/g, "")}`}
-          className="mt-6 flex h-14 items-center justify-center gap-3 rounded-full bg-[var(--sable-dark)] text-[1.0625rem] text-[var(--sable-warm-bg)]"
+          className="mt-6 flex h-14 items-center justify-center gap-3 rounded-full bg-[var(--sable-dark)] text-[1.0625rem] text-[var(--sable-warm-bg)] btn-leaf"
         >
           <RiPhoneLine className="h-5 w-5 text-[var(--sable-gold)]" />
           Call Olivia · {phone}
