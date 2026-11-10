@@ -40,6 +40,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Clear keyboard focus for visitors not using a mouse. */
+:focus-visible {
+  outline: 2px solid var(--sable-gold);
+  outline-offset: 3px;
+}
+
+/* Visitors who ask their device for less motion get a still page. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
 ::selection {
   background: rgba(201, 168, 76, 0.22);
   color: inherit;

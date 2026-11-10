@@ -43,6 +43,7 @@ export default function Reveal({
   return (
     <div
       ref={ref}
+      data-reveal
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,

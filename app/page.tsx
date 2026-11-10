@@ -1,5 +1,6 @@
 import MembershipBridge from "@/components/MembershipBridge";
 import Reveal from "@/components/Reveal";
+import TestimonialsSalon from "@/components/TestimonialsSalon";
 import { siteContent } from "@/content/siteContent";
 import {
   RiPlantLine,
@@ -11,12 +12,6 @@ import {
 } from "react-icons/ri";
 import { FaPaw } from "react-icons/fa6";
 import Image from "next/image";
-
-type Testimonial = {
-  quote: string;
-  name: string;
-  detail?: string;
-};
 
 export default function Page() {
   const {
@@ -31,9 +26,6 @@ export default function Page() {
     contact,
   } = siteContent;
 
-  const [featuredTestimonial, ...supportingTestimonials]: readonly Testimonial[] =
-    testimonials;
-
   // const heroWords = hero.title.split(" ");
 
   return (
@@ -42,7 +34,7 @@ export default function Page() {
         <div className="overflow-hidden rounded-[32px] border-3 border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1b2815_0%,#22311a_54%,#273620_100%)] shadow-[0_18px_60px_rgba(0,0,0,0.08)]">
           <div className="mx-auto max-w-5xl px-6 py-20 text-center sm:px-10 sm:py-28 md:px-14 md:py-36">
             <Reveal y={12}>
-              <p className="text-[0.72rem] uppercase tracking-[0.4em] text-[rgba(235,230,215,0.7)] sm:text-[0.78rem]">
+              <p className="text-[0.875rem] uppercase tracking-[0.2em] text-[rgba(235,230,215,0.86)]">
                 {hero.pretitle}
               </p>
             </Reveal>
@@ -81,7 +73,7 @@ export default function Page() {
             </Reveal>
 
             <Reveal delay={260} y={18}>
-              <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-[rgba(235,230,215,0.8)] sm:text-[0.98rem]">
+              <p className="mx-auto mt-6 max-w-2xl text-[1.0625rem] leading-8 text-[rgba(235,230,215,0.86)] sm:text-[1.125rem]">
                 {hero.subtitle}
               </p>
             </Reveal>
@@ -100,14 +92,14 @@ export default function Page() {
             <Reveal delay={380} y={16}>
               <a
                 href={`#${hero.ctaTarget}`}
-                className="mt-12 inline-flex items-center justify-center rounded-full border border-[rgba(166,140,74,0.85)] px-10 py-4 font-heading text-[0.92rem] tracking-[0.14em] text-[var(--sable-warm-bg)] transition duration-300 hover:-translate-y-[1px] hover:bg-[rgba(166,140,74,0.95)] hover:text-[var(--sable-dark)] sm:px-14"
+                className="mt-12 inline-flex items-center justify-center rounded-full border border-[rgba(166,140,74,0.85)] px-10 py-4 font-heading text-[1rem] tracking-[0.12em] text-[var(--sable-warm-bg)] transition duration-300 hover:-translate-y-[1px] hover:bg-[rgba(166,140,74,0.95)] hover:text-[var(--sable-dark)] sm:px-14"
               >
                 {hero.ctaLabel}
               </a>
             </Reveal>
 
             <Reveal delay={440} y={12}>
-              <div className="mt-14 flex flex-col items-center gap-2 text-[0.8rem] uppercase tracking-[0.26em] text-[rgba(235,230,215,0.56)]">
+              <div className="mt-14 flex flex-col items-center gap-2 text-[0.875rem] uppercase tracking-[0.2em] text-[rgba(235,230,215,0.86)]">
                 <p>{hero.location}</p>
                 <p className="text-[var(--sable-gold)]">{hero.footerTagline}</p>
               </div>
@@ -122,10 +114,10 @@ export default function Page() {
             <div className="mx-auto max-w-5xl px-6 py-14 sm:px-10 sm:py-18 md:px-14 md:py-24">
               <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <p className="text-[0.78rem] uppercase tracking-[0.36em] text-[var(--sable-sage)]">
+                  <p className="text-[0.875rem] uppercase tracking-[0.2em] text-[var(--sable-sage)]">
                     {about.eyebrow}
                   </p>
-                  <p className="mt-2 text-sm italic text-[rgba(58,63,45,0.72)]">
+                  <p className="mt-2 text-base italic text-[var(--sable-sage)]">
                     {about.supportingLine}
                   </p>
                 </div>
@@ -137,7 +129,7 @@ export default function Page() {
                     {about.title.toUpperCase()}
                   </h2>
                   <div className="mt-3 h-px w-10 bg-[linear-gradient(90deg,var(--sable-gold)_0%,rgba(166,140,74,0.15)_100%)]" />
-                  <p className="mt-3 font-heading text-2xl leading-[1.2] tracking-[-0.01em] text-[rgba(58,63,45,0.65)]">
+                  <p className="mt-3 font-heading text-2xl leading-[1.2] tracking-[-0.01em] text-[rgba(58,63,45,0.85)]">
                     {about.heading}
                   </p>
 
@@ -149,7 +141,7 @@ export default function Page() {
                     {about.subheading}
                   </h3>
 
-                  <p className="mt-6 whitespace-pre-line text-[1rem] leading-8 text-[var(--sable-body-soft)]">
+                  <p className="mt-6 whitespace-pre-line text-[1.125rem] leading-8 text-[var(--sable-body-soft)]">
                     {about.body}
                   </p>
                 </div>
@@ -164,7 +156,7 @@ export default function Page() {
           <div className="overflow-hidden rounded-[32px] border-3 border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1d2a16_0%,#25341d_100%)] text-white">
             <div className="mx-auto max-w-6xl px-6 py-14 sm:px-10 sm:py-18 md:px-14 md:py-24">
               <div className="text-center">
-                <p className="text-[0.78rem] uppercase tracking-[0.36em] text-[rgba(235,230,215,0.62)]">
+                <p className="text-[0.875rem] uppercase tracking-[0.2em] text-[rgba(235,230,215,0.86)]">
                   {servicesSection.eyebrow}
                 </p>
 
@@ -172,7 +164,7 @@ export default function Page() {
                   {servicesSection.title}
                 </h2>
 
-                <p className="mx-auto mt-4 max-w-2xl text-sm italic leading-7 text-[var(--sable-cream)] sm:text-base">
+                <p className="mx-auto mt-4 max-w-2xl text-base italic leading-7 text-[var(--sable-cream)] sm:text-lg">
                   {servicesSection.subtitle}
                 </p>
               </div>
@@ -187,7 +179,7 @@ export default function Page() {
                         {service.title}
                       </h3>
 
-                      <p className="mt-4 text-sm leading-7 text-[rgba(235,230,215,0.88)]">
+                      <p className="mt-4 text-base leading-7 text-[rgba(235,230,215,0.9)]">
                         {service.description}
                       </p>
                     </div>
@@ -213,66 +205,10 @@ export default function Page() {
       <section className="bg-[var(--sable-warm-bg)] px-[10px] pt-[10px]">
         <Reveal>
           <div className="overflow-hidden rounded-[32px] border-3 border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1d2a16_0%,#25341d_100%)]">
-            <div className="mx-auto max-w-5xl px-6 py-16 text-center sm:px-10 sm:py-20 md:px-14 md:py-28">
-              <p className="text-[0.78rem] uppercase tracking-[0.36em] text-[rgba(235,230,215,0.62)]">
-                {testimonialsSection.eyebrow}
-              </p>
-
-              <div className="mx-auto mt-8 h-px w-24 bg-[linear-gradient(90deg,transparent_0%,rgba(166,140,74,0.15)_20%,rgba(166,140,74,0.75)_50%,rgba(166,140,74,0.15)_80%,transparent_100%)]" />
-
-              <figure className="mt-10 sm:mt-12">
-                <blockquote className="mx-auto max-w-3xl font-heading text-[1.6rem] italic leading-[1.45] text-[var(--sable-warm-bg)] sm:text-[2.1rem] md:text-[2.4rem]">
-                  &ldquo;{featuredTestimonial.quote}&rdquo;
-                </blockquote>
-
-                <figcaption className="mt-8 text-[0.76rem] uppercase tracking-[0.26em]">
-                  <span className="text-[var(--sable-gold)]">
-                    {featuredTestimonial.name}
-                  </span>
-                  {featuredTestimonial.detail && (
-                    <span className="mt-2 block text-[rgba(235,230,215,0.56)]">
-                      {featuredTestimonial.detail}
-                    </span>
-                  )}
-                </figcaption>
-              </figure>
-
-              {supportingTestimonials.length > 0 && (
-                <div className="mt-14 grid border-t border-[rgba(166,140,74,0.22)] md:mt-20 md:grid-cols-2 md:gap-y-12">
-                  {supportingTestimonials.map((testimonial, index) => (
-                    <Reveal
-                      key={testimonial.quote}
-                      className="h-full"
-                      delay={(index % 2) * 100}
-                      y={16}
-                    >
-                      <figure
-                        className={`h-full border-[rgba(166,140,74,0.22)] px-2 pt-10 md:px-10 md:pt-12 ${
-                          index > 0 ? "mt-10 border-t md:mt-0" : ""
-                        } ${index === 1 ? "md:border-t-0" : ""} ${
-                          index % 2 === 1 ? "md:border-l" : ""
-                        }`}
-                      >
-                        <blockquote className="font-heading text-[1.12rem] italic leading-[1.7] text-[var(--sable-cream)]">
-                          &ldquo;{testimonial.quote}&rdquo;
-                        </blockquote>
-
-                        <figcaption className="mt-6 text-[0.72rem] uppercase tracking-[0.26em]">
-                          <span className="text-[var(--sable-gold)]">
-                            {testimonial.name}
-                          </span>
-                          {testimonial.detail && (
-                            <span className="mt-2 block text-[rgba(235,230,215,0.56)]">
-                              {testimonial.detail}
-                            </span>
-                          )}
-                        </figcaption>
-                      </figure>
-                    </Reveal>
-                  ))}
-                </div>
-              )}
-            </div>
+            <TestimonialsSalon
+              eyebrow={testimonialsSection.eyebrow}
+              testimonials={testimonials}
+            />
           </div>
         </Reveal>
       </section>
@@ -284,7 +220,7 @@ export default function Page() {
         <Reveal>
           <div className="overflow-hidden rounded-[32px] border-3 border-[rgba(166,140,74,0.5)] bg-[linear-gradient(180deg,#f6f0e6_0%,#f1eadf_100%)] text-[var(--sable-dark)]">
             <div className="mx-auto max-w-2xl px-6 py-14 text-center sm:px-10 sm:py-18 md:px-14 md:py-24">
-              <p className="text-[0.78rem] uppercase tracking-[0.36em] text-[var(--sable-sage)]">
+              <p className="text-[0.875rem] uppercase tracking-[0.2em] text-[var(--sable-sage)]">
                 {contactSection.eyebrow}
               </p>
 
@@ -292,7 +228,7 @@ export default function Page() {
                 {contactSection.title}
               </h2>
 
-              <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[var(--sable-body-soft)] sm:text-base">
+              <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-[var(--sable-body-soft)] sm:text-lg">
                 {contactSection.subtitle}
               </p>
 
@@ -348,7 +284,7 @@ export default function Page() {
                 &ldquo;{contactSection.quote}&rdquo;
               </p>
 
-              <div className="mt-4 space-y-1 text-sm text-[var(--sable-body-soft)]">
+              <div className="mt-4 space-y-1 text-base text-[var(--sable-body-soft)]">
                 <p>{contactSection.brand}</p>
                 <p>{contactSection.location}</p>
                 <p className="font-heading italic text-[var(--sable-sage)]">
