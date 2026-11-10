@@ -8,7 +8,6 @@ export const siteContent = {
     ctaLabel: "Arrange a Private Consultation",
     ctaTarget: "contact",
     location: "Austin, Texas",
-    footerTagline: "Impeccable Care for Plants and Place",
   },
 
   about: {
@@ -59,13 +58,14 @@ At Sable Concierge, Olivia’s love for plants, people, and place is more than a
     title: "Ongoing Concierge Care",
     subtitle: "A personalized membership designed around the way you live.",
     centerText: "Custom & Personalized",
-    featuresTitle: "Features",
+    featuresTitle: "How It Works",
     benefitsTitle: "Benefits",
+    // Shown as numbered steps.
     features: [
-      "Home Care",
-      "Plant Care",
-      "Home Organizing",
-      "Personal Shopping",
+      "A conversation about your needs",
+      "A walkthrough of your home",
+      "A plan built around you",
+      "Ongoing, reliable care",
     ],
     benefits: [
       "Curated to your needs and desires",

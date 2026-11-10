@@ -69,11 +69,14 @@ export default function MembershipBridge({
                     </p>
 
                     <ul className="mt-8 space-y-5 text-white sm:mt-10 sm:space-y-6">
-                      {features.map((item) => (
+                      {features.map((item, index) => (
                         <li
                           key={item}
-                          className="border-b border-[rgba(255,255,255,0.1)] pb-4 font-heading text-[1.4rem] font-normal leading-[1.2] tracking-[0.01em] text-white"
+                          className="flex gap-4 border-b border-[rgba(255,255,255,0.1)] pb-4 font-heading text-[1.4rem] font-normal leading-[1.2] tracking-[0.01em] text-white"
                         >
+                          <span className="text-[var(--sable-gold)] tabular-nums">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
                           {item}
                         </li>
                       ))}
@@ -112,11 +115,14 @@ export default function MembershipBridge({
                   </p>
 
                   <ul className="mt-16 space-y-8 text-white 2xl:mt-20 2xl:space-y-9">
-                    {features.map((item) => (
+                    {features.map((item, index) => (
                       <li
                         key={item}
-                        className="max-w-[440px] border-b border-[rgba(255,255,255,0.1)] pb-5 font-heading text-[1.8rem] font-normal leading-[1.16] tracking-[0.01em] text-white 2xl:text-[2rem]"
+                        className="flex max-w-[440px] gap-5 border-b border-[rgba(255,255,255,0.1)] pb-5 font-heading text-[1.8rem] font-normal leading-[1.16] tracking-[0.01em] text-white 2xl:text-[2rem]"
                       >
+                        <span className="text-[var(--sable-gold)] tabular-nums">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
                         {item}
                       </li>
                     ))}

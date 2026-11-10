@@ -1,3 +1,4 @@
+import CallBar from "@/components/CallBar";
 import MembershipBridge from "@/components/MembershipBridge";
 import Reveal from "@/components/Reveal";
 import TestimonialsSalon from "@/components/TestimonialsSalon";
@@ -101,7 +102,6 @@ export default function Page() {
             <Reveal delay={440} y={12}>
               <div className="mt-14 flex flex-col items-center gap-2 text-[0.875rem] uppercase tracking-[0.2em] text-[rgba(235,230,215,0.86)]">
                 <p>{hero.location}</p>
-                <p className="text-[var(--sable-gold)]">{hero.footerTagline}</p>
               </div>
             </Reveal>
           </div>
@@ -295,6 +295,8 @@ export default function Page() {
           </div>
         </Reveal>
       </section>
+
+      <CallBar phone={contact.phone} />
     </main>
   );
 }

@@ -14,10 +14,21 @@ const sourceSans = Source_Sans_3({
   weight: ["300", "400", "500", "600"],
 });
 
+const description =
+  "Impeccable care for plants and place. A luxury concierge service in Austin, Texas.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sablesvcs.com"),
   title: "Sable Concierge | Luxury Personal Concierge",
-  description:
-    "Impeccable care for plants and place. A luxury concierge service in Austin, Texas.",
+  description,
+  openGraph: {
+    title: "Sable Concierge",
+    description,
+    siteName: "Sable Concierge",
+    url: "/",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
