@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 import FaqList from "@/components/FaqList";
@@ -9,6 +10,10 @@ import Reveal from "@/components/Reveal";
 import ServicesGallery from "@/components/ServicesGallery";
 import TestimonialsSalon from "@/components/TestimonialsSalon";
 import { siteContent } from "@/content/siteContent";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://sablesvcs.com/" },
+};
 
 export default function Page() {
   const {
