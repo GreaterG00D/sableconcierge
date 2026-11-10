@@ -1,8 +1,12 @@
-import { Pinyon_Script } from "next/font/google";
+import localFont from "next/font/local";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 
-const script = Pinyon_Script({ weight: "400", subsets: ["latin"] });
+const script = localFont({
+  src: "../fonts/PinyonScript.ttf",
+  weight: "400",
+  display: "swap",
+});
 
 type Props = { title: string; body: string; brand: string };
 
