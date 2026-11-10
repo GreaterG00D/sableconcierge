@@ -32,8 +32,9 @@ export default function SiteHeader({ brand, phone }: Props) {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[rgba(166,140,74,0.25)] bg-[#f0ede6]">
-      <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-5 sm:px-8 lg:h-[72px]">
+    <header className="sticky top-0 z-40 isolate border-b border-[rgba(166,140,74,0.25)] bg-[#f0ede6]">
+      <div aria-hidden="true" className="deco-leaf leaf-cream-field" />
+      <div className="relative mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-5 sm:px-8 lg:h-[72px]">
         <a href="#top" onClick={close} aria-label={`${brand} home`}>
           <Image
             src="/sc-mark.png"
@@ -90,7 +91,7 @@ export default function SiteHeader({ brand, phone }: Props) {
         id="mobile-menu"
         aria-label="Main"
         hidden={!open}
-        className="border-t border-[rgba(166,140,74,0.25)] bg-[var(--sable-warm-bg)] px-5 pb-6 sm:px-8 lg:hidden"
+        className="relative border-t border-[rgba(166,140,74,0.25)] px-5 pb-6 sm:px-8 lg:hidden"
       >
         <ul>
           {links.map((link) => (
