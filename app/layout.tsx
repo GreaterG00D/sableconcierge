@@ -19,12 +19,12 @@ const description =
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sablesvcs.com"),
-  title: "Sable Concierge | Luxury Personal Concierge",
+  title: "Sable Services | Luxury Personal Concierge",
   description,
   openGraph: {
-    title: "Sable Concierge",
+    title: "Sable Services",
     description,
-    siteName: "Sable Concierge",
+    siteName: "Sable Services",
     url: "/",
     type: "website",
   },

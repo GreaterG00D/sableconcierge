@@ -26,7 +26,10 @@ export default function MembershipBridge({
   const secondLine = words.slice(2).join(" ");
 
   return (
-    <section className="bg-[var(--sable-warm-bg)] px-[10px] pt-[10px]">
+    <section
+      id="membership"
+      className="scroll-mt-20 bg-[var(--sable-warm-bg)] px-[10px] pt-[10px]"
+    >
       <Reveal>
         <div className="mx-auto max-w-[1600px]">
           <div className="overflow-hidden rounded-[32px] border-3 border-[rgba(166,140,74,0.42)] bg-[linear-gradient(180deg,#f8f3ea_0%,#f2ebdf_100%)] px-5 py-12 sm:px-8 sm:py-16 xl:px-12 xl:py-20">
