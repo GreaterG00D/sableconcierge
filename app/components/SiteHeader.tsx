@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { RiCloseLine, RiMenuLine, RiPhoneLine } from "react-icons/ri";
 
@@ -33,12 +34,15 @@ export default function SiteHeader({ brand, phone }: Props) {
   return (
     <header className="sticky top-0 z-40 border-b border-[rgba(166,140,74,0.25)] bg-[rgba(240,237,230,0.96)] backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-5 sm:px-8 lg:h-[72px]">
-        <a
-          href="#top"
-          onClick={close}
-          className="font-heading text-[1.35rem] text-[var(--sable-dark)] sm:text-[1.5rem]"
-        >
-          {brand}
+        <a href="#top" onClick={close} aria-label={`${brand} home`}>
+          <Image
+            src="/sc-mark.png"
+            alt=""
+            width={740}
+            height={560}
+            priority
+            className="h-10 w-auto mix-blend-multiply [filter:brightness(1.02)] lg:h-11"
+          />
         </a>
 
         <nav aria-label="Main" className="hidden lg:block">

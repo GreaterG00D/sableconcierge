@@ -1,20 +1,15 @@
-import CallBar from "@/components/CallBar";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import HeroMaison from "@/components/HeroMaison";
 import MembershipBridge from "@/components/MembershipBridge";
 import Reveal from "@/components/Reveal";
 import TestimonialsSalon from "@/components/TestimonialsSalon";
 import { siteContent } from "@/content/siteContent";
 import {
-  RiPlantLine,
-  RiHomeLine,
-  RiShoppingBagLine,
   RiInstagramLine,
   RiMailLine,
   RiPhoneLine,
 } from "react-icons/ri";
-import { FaPaw } from "react-icons/fa6";
-import Image from "next/image";
 
 export default function Page() {
   const {
@@ -32,8 +27,6 @@ export default function Page() {
     footer,
   } = siteContent;
 
-  // const heroWords = hero.title.split(" ");
-
   return (
     <>
       <SiteHeader brand={footer.brand} phone={contact.phone} />
@@ -41,82 +34,11 @@ export default function Page() {
         id="top"
         className="min-h-screen bg-[var(--sable-warm-bg)] text-[var(--sable-body)]"
       >
-        <section className="bg-[var(--sable-warm-bg)] px-[10px] pt-[10px] lg:pt-0">
-          <div className="overflow-hidden rounded-[32px] border-3 border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1b2815_0%,#22311a_54%,#273620_100%)] shadow-[0_18px_60px_rgba(0,0,0,0.08)]">
-            <div className="mx-auto max-w-5xl px-6 py-20 text-center sm:px-10 sm:py-28 md:px-14 md:py-36">
-              <Reveal y={12}>
-                <p className="text-[0.875rem] uppercase tracking-[0.2em] text-[rgba(235,230,215,0.86)]">
-                  {hero.pretitle}
-                </p>
-              </Reveal>
-
-              <Reveal delay={80} y={18}>
-                <div className="mt-8 flex justify-center">
-                  <div className="rounded-2xl border border-[rgba(166,140,74,0.55)] bg-white p-6 sm:p-8">
-                    <Image
-                      src="/sable-concierge-logo.png"
-                      alt="Sable Concierge logo"
-                      width={320}
-                      height={120}
-                      className="h-auto w-full max-w-[280px] rounded-2xl object-contain sm:max-w-[320px]"
-                      priority
-                    />
-                  </div>
-                </div>
-                {/* <div className="mt-8">
-                <p className="font-heading text-[4.3rem] leading-[0.9] tracking-[-0.05em] text-[var(--sable-warm-bg)] sm:text-[5.7rem] md:text-[6.9rem] motion-safe:animate-[float_7s_ease-in-out_infinite]">
-                  {heroWords[0]}
-                </p>
-                <p className="mt-2 font-heading text-[1.05rem] tracking-[0.42em] text-[var(--sable-gold)] sm:text-[1.2rem]">
-                  {heroWords.slice(1).join(" ").toUpperCase()}
-                </p>
-              </div> */}
-              </Reveal>
-
-              <Reveal delay={140} y={12}>
-                <div className="mx-auto mt-8 h-px w-24 bg-[linear-gradient(90deg,transparent_0%,rgba(166,140,74,0.15)_20%,rgba(166,140,74,0.75)_50%,rgba(166,140,74,0.15)_80%,transparent_100%)]" />
-              </Reveal>
-
-              <Reveal delay={200} y={18}>
-                <p className="mx-auto mt-8 max-w-2xl font-heading text-[1.15rem] italic leading-[1.7] text-[var(--sable-cream)] sm:text-[1.3rem]">
-                  {hero.tagline}
-                </p>
-              </Reveal>
-
-              <Reveal delay={260} y={18}>
-                <p className="mx-auto mt-6 max-w-2xl text-[1.0625rem] leading-8 text-[rgba(235,230,215,0.86)] sm:text-[1.125rem]">
-                  {hero.subtitle}
-                </p>
-              </Reveal>
-
-              <Reveal delay={320} y={14}>
-                <div className="mt-10 flex items-center justify-center gap-5 text-[var(--sable-cream)] opacity-80 sm:gap-6">
-                  <span className="h-px w-10 bg-[rgba(200,213,181,0.25)] sm:w-16" />
-                  <RiPlantLine className="h-[18px] w-[18px] transition-transform duration-500 hover:-translate-y-0.5" />
-                  <FaPaw className="h-[16px] w-[16px] transition-transform duration-500 hover:-translate-y-0.5" />
-                  <RiHomeLine className="h-[18px] w-[18px] transition-transform duration-500 hover:-translate-y-0.5" />
-                  <RiShoppingBagLine className="h-[18px] w-[18px] transition-transform duration-500 hover:-translate-y-0.5" />
-                  <span className="h-px w-10 bg-[rgba(200,213,181,0.25)] sm:w-16" />
-                </div>
-              </Reveal>
-
-              <Reveal delay={380} y={16}>
-                <a
-                  href={`#${hero.ctaTarget}`}
-                  className="mt-12 inline-flex items-center justify-center rounded-full border border-[rgba(166,140,74,0.85)] px-10 py-4 font-heading text-[1rem] tracking-[0.12em] text-[var(--sable-warm-bg)] transition duration-300 hover:-translate-y-[1px] hover:bg-[rgba(166,140,74,0.95)] hover:text-[var(--sable-dark)] sm:px-14"
-                >
-                  {hero.ctaLabel}
-                </a>
-              </Reveal>
-
-              <Reveal delay={440} y={12}>
-                <div className="mt-14 flex flex-col items-center gap-2 text-[0.875rem] uppercase tracking-[0.2em] text-[rgba(235,230,215,0.86)]">
-                  <p>{hero.location}</p>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </section>
+        <HeroMaison
+          location={hero.location}
+          subtitle={hero.subtitle}
+          services={services}
+        />
 
         <section
           id="services"
@@ -341,7 +263,6 @@ export default function Page() {
           </Reveal>
         </section>
 
-        <CallBar phone={contact.phone} />
       </main>
       <SiteFooter
         brand={footer.brand}

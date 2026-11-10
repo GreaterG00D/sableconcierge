@@ -22,7 +22,7 @@ export default function SiteFooter({
 }: Props) {
   return (
     <footer className="bg-[var(--sable-warm-bg)] px-[10px] pb-[10px]">
-      <div className="rounded-[32px] border-3 border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1d2a16_0%,#1a2513_100%)] px-6 pb-28 pt-14 sm:px-10 md:px-14 lg:pb-10">
+      <div className="rounded-[32px] border-3 border-[rgba(166,140,74,0.55)] bg-[linear-gradient(180deg,#1d2a16_0%,#1a2513_100%)] px-6 pb-10 pt-14 sm:px-10 md:px-14">
         <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <p className="font-heading text-[2rem] text-[var(--sable-warm-bg)]">
