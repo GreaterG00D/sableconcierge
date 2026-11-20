@@ -76,7 +76,7 @@ export default function SiteHeader({ brand, phone }: Props) {
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen(!open)}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(166,140,74,0.6)] text-[var(--sable-dark)] lg:hidden"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(166,140,74,0.6)] bg-[var(--sable-warm-bg)] text-[var(--sable-dark)] lg:hidden"
           >
             {open ? (
               <RiCloseLine className="h-6 w-6" />
@@ -91,27 +91,35 @@ export default function SiteHeader({ brand, phone }: Props) {
         id="mobile-menu"
         aria-label="Main"
         hidden={!open}
-        className="relative border-t border-[rgba(166,140,74,0.25)] px-5 pb-6 sm:px-8 lg:hidden"
+        className="relative border-t border-[rgba(166,140,74,0.25)] pb-6 lg:hidden"
       >
-        <ul>
-          {links.map((link) => (
-            <li
-              key={link.href}
-              className="border-b border-[rgba(166,140,74,0.2)]"
-            >
-              <a
-                href={link.href}
-                onClick={close}
-                className="flex h-14 items-center font-heading text-[1.3rem] text-[var(--sable-dark)]"
+        {/* Cream panel ends in a gold-edged half circle; the header's leaf
+            wallpaper shows through on the right. */}
+        <div className="-mt-px w-[86%] max-w-[26rem] overflow-hidden rounded-r-full border-y border-r border-[#a68c4a] bg-[var(--sable-warm-bg)] py-3 pl-5 sm:pl-8">
+          <ul className="pr-10">
+            {links.map((link, i) => (
+              <li
+                key={link.href}
+                className={
+                  i < links.length - 1
+                    ? "border-b border-[rgba(166,140,74,0.2)]"
+                    : undefined
+                }
               >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+                <a
+                  href={link.href}
+                  onClick={close}
+                  className="flex h-14 items-center font-heading text-[1.3rem] text-[var(--sable-dark)]"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
         <a
           href={`tel:${phone.replace(/\D/g, "")}`}
-          className="mt-6 flex h-14 items-center justify-center gap-3 rounded-full bg-[var(--sable-dark)] text-[1.0625rem] text-[var(--sable-warm-bg)] btn-leaf"
+          className="mx-5 mt-6 flex h-14 items-center justify-center gap-3 rounded-full bg-[var(--sable-dark)] text-[1.0625rem] text-[var(--sable-warm-bg)] btn-leaf sm:mx-8"
         >
           <RiPhoneLine className="h-5 w-5 text-[var(--sable-gold)]" />
           Call Olivia · {phone}
