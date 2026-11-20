@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -23,12 +25,18 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sablesvcs.com"),
   title: "Sable Services | Luxury Personal Concierge",
   description,
+  applicationName: "Sable Services",
+  authors: [{ name: "Olivia Whitehead" }],
+  creator: "Sable Services",
+  formatDetection: { telephone: true, email: true, address: false },
+  robots: { index: true, follow: true, googleBot: { "max-image-preview": "large" } },
   openGraph: {
     title: "Sable Services",
     description,
     siteName: "Sable Services",
     url: "/",
     type: "website",
+    locale: "en_US",
     images: [{
       url: "/social/sable-concierge-lattice-v3.jpg",
       width: 1200,
@@ -45,6 +53,11 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#1f2e24",
+  colorScheme: "light",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,6 +67,8 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${sourceSans.variable}`}>
       <body className="font-body antialiased">
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

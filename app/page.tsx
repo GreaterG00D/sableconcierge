@@ -7,6 +7,7 @@ import AboutNote from "@/components/AboutNote";
 import ContactTiles from "@/components/ContactTiles";
 import MembershipEditorial from "@/components/MembershipEditorial";
 import Reveal from "@/components/Reveal";
+import StructuredData from "@/components/StructuredData";
 import ServicesGallery from "@/components/ServicesGallery";
 import TestimonialsSalon from "@/components/TestimonialsSalon";
 import { siteContent } from "@/content/siteContent";
@@ -33,6 +34,7 @@ export default function Page() {
 
   return (
     <>
+      <StructuredData />
       <SiteHeader brand={footer.brand} phone={contact.phone} />
       <main
         id="top"
