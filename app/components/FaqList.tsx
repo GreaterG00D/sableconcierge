@@ -21,7 +21,7 @@ export default function FaqList({ items }: Props) {
       ([entry]) => {
         if (!entry.isIntersecting) return;
         observer.disconnect();
-        // Wait for the section's fade-in to finish before nudging.
+        // Short pause after it scrolls into view before nudging.
         timer = window.setTimeout(() => {
           if (details.open) return;
           summary.classList.add("faq-nudge");
